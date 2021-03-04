@@ -1,7 +1,6 @@
 package problem;
 
 import javax.media.opengl.GL2;
-import javax.swing.text.AbstractDocument;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -130,13 +129,16 @@ public class Problem {
      * Нарисовать задачу
      *
      * @param gl переменная OpenGL для рисования
-     * @param pos
      */
     public void render(GL2 gl) {
-        for (Point point : points) {
-         point.render(gl);
-         }
-        //Vector2 pos;
-        //Figures.renderPoint(GL2 gl, Vector2.pos){
-        };
+//        for (Point point : points) {
+//            point.render(gl);
+//        }
+//        Triangle triangle = new Triangle(new Vector2(0.1,0.2),new Vector2(-0.5,0.1),new Vector2(0.5,-0.8));
+//        triangle.render(gl);
+        Figures.renderPoint(gl, new Vector2(0.5, 0.7), 5);
+        Figures.renderPoint(gl, new Vector2(-0.5, 0.3), 3);
+        Figures.renderLine(gl, new Vector2(-0.5));
+    }
+
 }
