@@ -1,6 +1,7 @@
 package problem;
 
 import javax.media.opengl.GL2;
+import javax.swing.text.AbstractDocument;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -129,12 +130,13 @@ public class Problem {
      * Нарисовать задачу
      *
      * @param gl переменная OpenGL для рисования
+     * @param pos
      */
     public void render(GL2 gl) {
-        //for (Point point : points) {
-        //    point.render(gl);
-        // }
- Figures.renderPoint(){
-
- }
+        for (Point point : points) {
+         point.render(gl);
+         }
+        //Vector2 pos;
+        //Figures.renderPoint(GL2 gl, Vector2.pos){
+        };
 }
