@@ -138,7 +138,8 @@ public class Problem {
 //        triangle.render(gl);
         Figures.renderPoint(gl, new Vector2(0.5, 0.7), 5);
         Figures.renderPoint(gl, new Vector2(-0.5, 0.3), 3);
-        Figures.renderLine(gl, new Vector2(-0.5));
+        Figures.renderLine(gl, new Vector2(-0.6 ,-0.8), new Vector2(0.3, 0.1), 5);
+        Figures.renderCircle(gl, new Vector2(0.25, 0.45), 0.3,  200);
     }
 
 }
