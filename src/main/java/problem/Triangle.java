@@ -1,19 +1,18 @@
 package problem;
 
-import javax.media.opengl.GL2;
-import javax.media.opengl.GLAutoDrawable;
-
 public class Triangle {
-    Vector2 a;
-    Vector2 b;
-    Vector2 c;
-
-    public Triangle(Vector2 a, Vector2 b, Vector2 c) {
-        this.a = a;
-        this.b = b;
-        this.c = c;
+    public static Object pos;
+    public static Object pos1;
+    public Vector2 x;
+    public Vector2 y;
+    public Vector2 z;
+    public String toString() {
+        String s=String.format("(%.2f,%.2f)", x, y, z);
+        return s;
     }
-
-    public void render(GL2 gl) {
+    public Triangle(Vector2 x,Vector2 y, Vector2 z){
+        this.x=x;
+        this.y=y;
+        this.z=z;
     }
 }

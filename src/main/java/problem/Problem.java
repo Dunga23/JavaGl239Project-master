@@ -1,5 +1,6 @@
 package problem;
 
+import javax.media.opengl.GL;
 import javax.media.opengl.GL2;
 import java.io.*;
 import java.util.ArrayList;
@@ -30,6 +31,7 @@ public class Problem {
      * список точек
      */
     private ArrayList<Point> points;
+    private Circle circle;
 
     /**
      * Конструктор класса задачи
@@ -41,12 +43,11 @@ public class Problem {
     /**
      * Добавить точку
      *
-     * @param x      координата X точки
-     * @param y      координата Y точки
-     * @param setVal номер множества
+     * @param x координата X точки
+     * @param y координата Y точки
      */
-    public void addPoint(double x, double y, int setVal) {
-        Point point = new Point(x, y, setVal);
+    public void addPoint(double x, double y) {
+        Point point = new Point(x, y);
         points.add(point);
     }
 
@@ -67,6 +68,8 @@ public class Problem {
                 }
             }
         }
+        Circle circle = new Circle( new Vector2(0.5, 0.5), 0.3);
+      // Circle.render();
     }
 
     /**
@@ -81,9 +84,8 @@ public class Problem {
             while (sc.hasNextLine()) {
                 double x = sc.nextDouble();
                 double y = sc.nextDouble();
-                int setVal = sc.nextInt();
                 sc.nextLine();
-                Point point = new Point(x, y, setVal);
+                Point point = new Point(x, y);
                 points.add(point);
             }
         } catch (Exception ex) {
@@ -123,6 +125,7 @@ public class Problem {
      */
     public void clear() {
         points.clear();
+        circle = null;
     }
 
     /**
@@ -131,15 +134,17 @@ public class Problem {
      * @param gl переменная OpenGL для рисования
      */
     public void render(GL2 gl) {
-//        for (Point point : points) {
-//            point.render(gl);
-//        }
+        for (Point point : points) {
+            point.render(gl);
+        }
+        if (circle != null)
+            circle.render(gl);
 //        Triangle triangle = new Triangle(new Vector2(0.1,0.2),new Vector2(-0.5,0.1),new Vector2(0.5,-0.8));
 //        triangle.render(gl);
-        Figures.renderPoint(gl, new Vector2(0.5, 0.7), 5);
-        Figures.renderPoint(gl, new Vector2(-0.5, 0.3), 3);
-        Figures.renderLine(gl, new Vector2(-0.6 ,-0.8), new Vector2(0.3, 0.1), 5);
-        Figures.renderCircle(gl, new Vector2(0.25, 0.45), 0.3,  200);
+//        Figures.renderPoint(gl, new Vector2(-0.5, 0.3), 3);
+//        Figures.renderLine(gl, new Vector2(-0.6 ,-0.8), new Vector2(0.3, 0.1), 5);
+//        Figures.renderCircle(gl, new Vector2(0.25, 0.45), 0.3,  200);
+//        Figures.renderTriangles(gl, new Triangle(new Vector2(0.87, 0.3),new Vector2(0.67, 0.21),new Vector2(0.45, 0.4)), new Color(0.5, 0.5, 0.5));
     }
 
 }

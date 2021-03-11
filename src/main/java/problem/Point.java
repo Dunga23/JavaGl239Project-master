@@ -37,14 +37,12 @@ public class Point {
     /**
      * Конструктор точки
      *
-     * @param x         координата
-     * @param y         координата y
-     * @param setNumber номер множества, к которому принадлежит точка
+     * @param x координата
+     * @param y координата y
      */
-    Point(double x, double y, int setNumber) {
+    Point(double x, double y) {
         this.x = x;
         this.y = y;
-        this.setNumber = setNumber;
     }
 
     /**
@@ -54,10 +52,9 @@ public class Point {
      */
     static Point getRandomPoint() {
         Random r = new Random();
-        double nx = (double) r.nextInt(50) / 25 - 1;
-        double ny = (double) r.nextInt(50) / 25 - 1;
-        int nSetVal = r.nextInt(2);
-        return new Point(nx, ny, nSetVal);
+        double nx = r.nextDouble() * 2 - 1;
+        double ny = r.nextDouble() * 2 - 1;
+        return new Point(nx, ny);
     }
 
     /**
@@ -66,17 +63,17 @@ public class Point {
      * @param gl переменная OpenGl для рисования
      */
     void render(GL2 gl) {
-        if (isSolution)
-            gl.glColor3d(1.0, 0.0, 0.0);
-        else
-            switch (setNumber) {
-                case Point.SET_1:
-                    gl.glColor3d(0.0, 1.0, 0.0);
-                    break;
-                case Point.SET_2:
-                    gl.glColor3d(0.0, 0.0, 1.0);
-                    break;
-            }
+//        if (isSolution)
+//            gl.glColor3d(1.0, 0.0, 0.0);
+//        else
+//            switch (setNumber) {
+//                case Point.SET_1:
+//                    gl.glColor3d(0.0, 1.0, 0.0);
+//                    break;
+//                case Point.SET_2:
+//                    gl.glColor3d(0.0, 0.0, 1.0);
+//                    break;
+//            }
         gl.glPointSize(3);
         gl.glBegin(GL.GL_POINTS);
         gl.glVertex2d(x, y);
