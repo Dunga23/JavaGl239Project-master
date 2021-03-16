@@ -31,7 +31,7 @@ public class Problem {
      * список точек
      */
     private ArrayList<Point> points;
-    private Circle circle;
+    public Circle circle;
 
     /**
      * Конструктор класса задачи
@@ -68,7 +68,15 @@ public class Problem {
                 }
             }
         }
-        Circle circle = new Circle( new Vector2(0.5, 0.5), 0.3);
+        public void rocircle (Circle circle){
+            int k=0;
+        for (Point p: points){
+            if((Math.pow((circle.center.x-p.x), 2)+Math.pow((circle.center.y-p.y), 2))<Math.pow(circle.rad, 2)){
+
+            };
+        };
+        }
+        circle = new Circle( new Vector2(0.5, 0.5), 0.3);
       // Circle.render();
     }
 

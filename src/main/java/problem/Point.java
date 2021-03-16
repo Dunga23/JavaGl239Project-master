@@ -9,14 +9,6 @@ import java.util.Random;
  */
 public class Point {
     /**
-     * константа множества 1
-     */
-    public static final int SET_1 = 0;
-    /**
-     * константа множества 2
-     */
-    public static final int SET_2 = 1;
-    /**
      * номер множества
      */
     int setNumber;
