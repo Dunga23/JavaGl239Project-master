@@ -20,7 +20,7 @@ public class Problem {
     /**
      * заголовок окна
      */
-    public static final String PROBLEM_CAPTION = "Итоговый проект ученика 10-7 Иванова Ивана";
+    public static final String PROBLEM_CAPTION = "Итоговый проект ученика 10-1 Ривина Дмитрия";
 
     /**
      * путь к файлу
@@ -68,16 +68,9 @@ public class Problem {
                 }
             }
         }
-        public void rocircle (Circle circle){
-            int k=0;
-        for (Point p: points){
-            if((Math.pow((circle.center.x-p.x), 2)+Math.pow((circle.center.y-p.y), 2))<Math.pow(circle.rad, 2)){
-
-            };
-        };
-        }
         circle = new Circle( new Vector2(0.5, 0.5), 0.3);
-      // Circle.render();
+//ArrayList<Point>
+       System.out.print(circle.plcircle(points, circle)+" ");
     }
 
     /**
@@ -145,8 +138,9 @@ public class Problem {
         for (Point point : points) {
             point.render(gl);
         }
-        if (circle != null)
-            circle.render(gl);
+        circle = new Circle(new Vector2(0.4, 0.6), 0.2);
+        if (circle != null){
+            circle.render(gl);}
 //        Triangle triangle = new Triangle(new Vector2(0.1,0.2),new Vector2(-0.5,0.1),new Vector2(0.5,-0.8));
 //        triangle.render(gl);
 //        Figures.renderPoint(gl, new Vector2(-0.5, 0.3), 3);

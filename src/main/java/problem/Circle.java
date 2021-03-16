@@ -15,4 +15,15 @@ public class Circle {
     public void render(GL2 gl) {
         Figures.renderCircle(gl, center, rad, 200);
     }
+   public double plcircle(ArrayList<Point> points, Circle circle){
+double k=0; double s=Math.PI*circle.rad*circle.rad;
+        for (Point point : points) {
+           if((point.x - circle.center.x) * (point.x - circle.center.x) +
+                   (point.y - circle.center.y) * (point.y - circle.center.y) <= circle.rad * circle.rad){
+  k++;
 }
+        }
+        return(k/s);
+        }
+    }
+
