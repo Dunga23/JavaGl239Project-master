@@ -31,7 +31,7 @@ public class Problem {
      * список точек
      */
     private ArrayList<Point> points;
-    public Circle circle;
+    private Circle circle;
 
     /**
      * Конструктор класса задачи
