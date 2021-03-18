@@ -32,6 +32,7 @@ public class Problem {
      */
     private ArrayList<Point> points;
     private Circle circle;
+    private Triangle triangle;
 
     /**
      * Конструктор класса задачи
@@ -69,8 +70,9 @@ public class Problem {
             }
         }
         circle = new Circle( new Vector2(0.5, 0.5), 0.3);
+       Triangle triangle = new Triangle(new Vector2(0.5, 0), new Vector2(-0.5, 0), new Vector2(0, 0.5));
 //ArrayList<Point>
-       System.out.print(circle.plcircle(points, circle)+" ");
+       triangle.tcircle(triangle);
     }
 
     /**

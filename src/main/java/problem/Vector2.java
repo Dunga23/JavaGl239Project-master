@@ -111,4 +111,7 @@ public class Vector2 {
             }else{
                 double q=y/Math.sqrt(x*x+y*y);
                 return Math.asin(q);
-            }}}
+            }}
+    public static double tdist(Vector2 A, Vector2 B){
+        return(Math.sqrt((A.x-B.x)*(A.x-B.x)+(A.y-B.y)*(A.y-B.y)));}
+    };

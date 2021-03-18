@@ -31,9 +31,9 @@ public class Figures {
     public static void renderTriangles(GL2 gl, Triangle pos, Color color1) {
         gl.glBegin(GL.GL_TRIANGLES);
         gl.glColor3d(color1.x, color1.y, color1.z);
-        gl.glVertex3d(pos.x.x, pos.x.y, pos.x.z);
-        gl.glVertex3d(pos.y.x, pos.y.y, pos.y.z);
-        gl.glVertex3d(pos.z.x,pos.z.y, pos.z.z);
+        gl.glVertex3d(pos.a.x, pos.a.y, pos.a.z);
+        gl.glVertex3d(pos.b.x, pos.b.y, pos.b.z);
+        gl.glVertex3d(pos.c.x,pos.c.y, pos.c.z);
         gl.glEnd();
     }
 }
