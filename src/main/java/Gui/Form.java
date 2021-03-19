@@ -2,6 +2,8 @@ package Gui;
 
 import problem.Point;
 import problem.Problem;
+import problem.Triangle;
+import problem.Vector2;
 
 import javax.swing.*;
 import java.awt.*;
