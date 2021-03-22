@@ -33,6 +33,7 @@ public class Problem {
     private ArrayList<Point> points;
     private Circle circle;
     private Triangle triangle;
+    private Circle rescircle;
 
     /**
      * Конструктор класса задачи
@@ -69,10 +70,22 @@ public class Problem {
                 }
             }
         }
-        //circle = new Circle( new Vector2(0.5, 0.5), 0.3);
-       Triangle triangle = new Triangle(new Vector2(0.5, 0), new Vector2(-0.5, 0), new Vector2(0, 0.5));
+        int P = -100;
+        for (int i = 0; i < points.size(); i++) {
+            for (int j = 0; j < points.size() && j != i; j++) {
+                for (int r = 0; r < points.size() && r != i && r != j; r++) {
+                    Triangle triangle = new Triangle(new Vector2(points.get(i).x, points.get(i).y), new Vector2(points.get(j).x, points.get(j).y), new Vector2(points.get(r).x, points.get(r).y));
+                    Circle circle = triangle.tcircle(triangle);
+                    if (circle.plcircle(points, circle) > P) {
+                        rescircle = circle;
+                    }
+                }
+            }
+            //circle = new Circle( new Vector2(0.5, 0.5), 0.3);
+            //Triangle triangle = new Triangle(new Vector2(0.5, 0), new Vector2(-0.5, 0), new Vector2(0, 0.5));
 //ArrayList<Point>
-      Circle circle = triangle.tcircle(triangle);
+            // Circle circle= triangle.tcircle(triangle);
+        }
     }
 
     /**
@@ -140,9 +153,17 @@ public class Problem {
         for (Point point : points) {
             point.render(gl);
         }
-       // circle = new Circle(new Vector2(0.4, 0.6), 0.2);
-        if (circle != null){
-            circle.render(gl);}
+           // Triangle triangle = new Triangle(new Vector2(0.5, 0), new Vector2(-0.5, 0), new Vector2(0, 0.5));
+//ArrayList<Point>
+            //Circle circle= triangle.tcircle(triangle);
+            if(rescircle!=null){
+                rescircle.render(gl);
+            }
+            }
+       // Triangle triangle = new Triangle(new Vector2(0.5, 0), new Vector2(-0.5, 0), new Vector2(0, 0.5));
+       //circle = triangle.tcircle(triangle);
+        //if (triangle.tcircle(triangle) != null){
+        //    triangle.tcircle(triangle).render(gl);}
 //        Triangle triangle = new Triangle(new Vector2(0.1,0.2),new Vector2(-0.5,0.1),new Vector2(0.5,-0.8));
 //        triangle.render(gl);
 //        Figures.renderPoint(gl, new Vector2(-0.5, 0.3), 3);
@@ -159,4 +180,3 @@ public class Problem {
     //    Circle circle = new Circle(ce, r);
     //    return (r);
     //}
-}

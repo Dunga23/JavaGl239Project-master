@@ -10,7 +10,7 @@ public class Triangle {
         String s=String.format("(%.2f,%.2f)", a, b, c);
         return s;
     }
-    public Triangle(Vector2 x,Vector2 y, Vector2 z){
+    public Triangle(Vector2 a,Vector2 b, Vector2 c){
         this.a=a;
         this.b=b;
         this.c=c;
