@@ -14,8 +14,10 @@ public class Problem {
      * текст задачи
      */
     public static final String PROBLEM_TEXT = "ПОСТАНОВКА ЗАДАЧИ:\n" +
-            "Заданы два множества точек в пространстве.\n" +
-            "Требуется построить пересечения и разность этих множеств";
+            "Задано множество точек плоскости.\n" +
+            "Требуется построить окружность, содержащую внутри себя хотя\n" +
+            " бы две точки множества, имеющую наибольшую плотность точек\n" +
+            " внутри себя.";
 
     /**
      * заголовок окна
@@ -31,6 +33,7 @@ public class Problem {
      * список точек
      */
     private ArrayList<Point> points;
+    private ArrayList<Circle> circles;
     private Circle circle;
     private Triangle triangle;
     private Circle rescircle;
@@ -40,6 +43,7 @@ public class Problem {
      */
     public Problem() {
         points = new ArrayList<>();
+        circles = new ArrayList<>();
     }
 
     /**
@@ -75,7 +79,7 @@ public class Problem {
             for (int j = 0; j < points.size() && j != i; j++) {
                 for (int r = 0; r < points.size() && r != i && r != j; r++) {
                     Triangle triangle = new Triangle(new Vector2(points.get(i).x, points.get(i).y), new Vector2(points.get(j).x, points.get(j).y), new Vector2(points.get(r).x, points.get(r).y));
-                    Circle circle = triangle.tcircle(triangle);
+                    Circle circle = triangle.tcircle(triangle); circles.add(circle);
                     if (circle.plcircle(points, circle) > P) {
                         rescircle = circle;
                     }
@@ -141,6 +145,8 @@ public class Problem {
      */
     public void clear() {
         points.clear();
+        circles.clear();
+        rescircle = null;
         circle = null;
     }
 

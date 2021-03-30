@@ -11,9 +11,11 @@ public class Circle {
         this.center = pos;
         this.rad = rad;
     }
-
+ static Circle getRandomCircle() {
+        return(new Circle(new Vector2(Math.random(), Math.random()), Math.random()/2 ));
+}
     public void render(GL2 gl) {
-        Figures.renderCircle(gl, center, rad, 200);
+        Figures.renderCircle(gl, center, rad, 400);
     }
    public double plcircle(ArrayList<Point> points, Circle circle){
 double k=0; double s=Math.PI*circle.rad*circle.rad;
