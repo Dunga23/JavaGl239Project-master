@@ -1,7 +1,7 @@
 package problem;
 
 public class Color {
-    public static Object color1;
+    public static Object color;
     public static double x;
     public static double y;
     public static double z;

@@ -162,6 +162,8 @@ public class Problem {
            // Triangle triangle = new Triangle(new Vector2(0.5, 0), new Vector2(-0.5, 0), new Vector2(0, 0.5));
 //ArrayList<Point>
             //Circle circle= triangle.tcircle(triangle);
+       // Figures.renderQuad(gl, new Vector2(0.5, 0.5), new Vector2(0.5, -0.5), new Vector2(-0.5, -0.5), new Vector2(-0.5, 0.5), false);
+        Figures.renderTriangle(gl, new Vector2(0.5, 0.5), new Vector2(0.0, 0.5), new Vector2(0.0, 0.0), false, new Color(0.5, 0.5, 0.1));
             if(rescircle!=null){
                 rescircle.render(gl);
             }
