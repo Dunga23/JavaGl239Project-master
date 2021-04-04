@@ -15,6 +15,9 @@ public class Triangle {
         this.b=b;
         this.c=c;
     }
+    static Triangle getRandomTriangle(){
+        return(new Triangle(new Vector2(Math.random(), Math.random()), new Vector2(Math.random(), Math.random()), new Vector2(Math.random(), Math.random())));
+    }
    public Circle tcircle(Triangle triangle){
         double D = 2*(triangle.a.x*(triangle.b.y-triangle.c.y)+triangle.b.x*(triangle.c.y-triangle.a.y)+triangle.c.x*(triangle.a.y-triangle.b.y));
         Vector2 ce= new Vector2 (((((triangle.a.x*triangle.a.x)+(triangle.a.y*triangle.a.y))*(triangle.b.y-triangle.c.y)+((triangle.b.x*triangle.b.x)+(triangle.b.y*triangle.b.y))*(triangle.c.y-triangle.a.y)+((triangle.c.x*triangle.c.x)+(triangle.c.y*triangle.c.y))*(triangle.a.y-triangle.b.y))/D),

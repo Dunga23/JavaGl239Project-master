@@ -85,10 +85,6 @@ public class Problem {
                     }
                 }
             }
-            //circle = new Circle( new Vector2(0.5, 0.5), 0.3);
-            //Triangle triangle = new Triangle(new Vector2(0.5, 0), new Vector2(-0.5, 0), new Vector2(0, 0.5));
-//ArrayList<Point>
-            // Circle circle= triangle.tcircle(triangle);
         }
     }
 
@@ -163,15 +159,22 @@ public class Problem {
 //ArrayList<Point>
             //Circle circle= triangle.tcircle(triangle);
        // Figures.renderQuad(gl, new Vector2(0.5, 0.5), new Vector2(0.5, -0.5), new Vector2(-0.5, -0.5), new Vector2(-0.5, 0.5), false);
-        Figures.renderTriangle(gl, new Vector2(0.5, 0.5), new Vector2(0.0, 0.5), new Vector2(0.0, 0.0), false, new Color(0.5, 0.5, 0.1));
+        //Figures.renderTriangle(gl, new Vector2(0.5, 0.5), new Vector2(0.0, 0.5), new Vector2(0.0, 0.0), false, new Color(0.5, 0.5, 0.1));
             if(rescircle!=null){
+                gl.glColor4f(1.0f, 0.0f, 1.0f, 0.0f);
                 rescircle.render(gl);
+                for (Point point : points) {
+                    if((point.x - rescircle.center.x) * (point.x - rescircle.center.x) +
+                            (point.y - rescircle.center.y) * (point.y - rescircle.center.y) <= rescircle.rad * rescircle.rad){
+                        Circle circle = new Circle(new Vector2(point.x, point.y), 0.01);
+                        gl.glColor4f(0.0f, 1.0f, 1.0f, 1.0f);
+                        circle.render(gl);
+                    }
+                }
             }
             }
        // Triangle triangle = new Triangle(new Vector2(0.5, 0), new Vector2(-0.5, 0), new Vector2(0, 0.5));
        //circle = triangle.tcircle(triangle);
-        //if (triangle.tcircle(triangle) != null){
-        //    triangle.tcircle(triangle).render(gl);}
 //        Triangle triangle = new Triangle(new Vector2(0.1,0.2),new Vector2(-0.5,0.1),new Vector2(0.5,-0.8));
 //        triangle.render(gl);
 //        Figures.renderPoint(gl, new Vector2(-0.5, 0.3), 3);
@@ -180,11 +183,3 @@ public class Problem {
 //        Figures.renderTriangles(gl, new Triangle(new Vector2(0.87, 0.3),new Vector2(0.67, 0.21),new Vector2(0.45, 0.4)), new Color(0.5, 0.5, 0.5));
     }
     //Triangle triangle = new Triangle(new Vector2(0.5, 0), new Vector2(-0.5, 0), new Vector2(0, 0.5));
-    //public double tcircle(Triangle triangle){
-      //  double D=2*(triangle.a.x*(triangle.b.y-triangle.c.y)+triangle.b.x*(triangle.c.y-triangle.a.y)+triangle.c.x*(triangle.a.y-triangle.b.y));
-     //   Vector2 ce= new Vector2 ((((triangle.a.x*triangle.a.x)+(triangle.a.y*triangle.a.y))*(triangle.b.y-triangle.c.y)+((triangle.b.x*triangle.b.x)+(triangle.b.y*triangle.b.y))*(triangle.c.y-triangle.a.y)+((triangle.c.x*triangle.c.x)+(triangle.c.y*triangle.c.y))*(triangle.a.y-triangle.b.y))/D,
-     //           ((triangle.a.x*triangle.a.x)+(triangle.a.y*triangle.a.y))*(triangle.c.x-triangle.b.x)+((triangle.b.x*triangle.b.x)+(triangle.b.y*triangle.b.y))*(triangle.a.x-triangle.c.x)+((triangle.c.x*triangle.c.x)+(triangle.c.y*triangle.c.y))*(triangle.b.x-triangle.a.x)/D);
-     //   double r= Vector2.tdist(ce, triangle.a);
-    //    Circle circle = new Circle(ce, r);
-    //    return (r);
-    //}

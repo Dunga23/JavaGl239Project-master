@@ -27,5 +27,4 @@ double k=0; double s=Math.PI*circle.rad*circle.rad;
         }
         return(k/s);
         }
-    }
-
+}
