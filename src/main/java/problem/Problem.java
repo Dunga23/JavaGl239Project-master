@@ -62,35 +62,35 @@ public class Problem {
      */
     public void solve() {
         if (points.size() > 500) {
-            System.out.println("Введённое количество точек не мало, поэтому программа может работать не мгновенно");
+            System.out.println("Введённое количество точек велико, поэтому программа может работать не мгновенно");
         }
-            // перебираем пары точек
-            for (Point p : points) {
-                for (Point p2 : points) {
-                    // если точки являются разными
-                    if (p != p2) {
-                        // если координаты у них совпадают
-                        if (Math.abs(p.x - p2.x) < 0.0001 && Math.abs(p.y - p2.y) < 0.0001) {
-                            p.isSolution = true;
-                            p2.isSolution = true;
-                        }
-                    }
-                }
-            }
-            int P = -100;
-            for (int i = 0; i < points.size(); i++) {
-                for (int j = 0; j < points.size() && j != i; j++) {
-                    for (int r = 0; r < points.size() && r != i && r != j; r++) {
-                        Triangle triangle = new Triangle(new Vector2(points.get(i).x, points.get(i).y), new Vector2(points.get(j).x, points.get(j).y), new Vector2(points.get(r).x, points.get(r).y));
-                        Circle circle = triangle.tcircle(triangle);
-                        circles.add(circle);
-                        if (circle.plcircle(points, circle) > P) {
-                            rescircle = circle;
-                        }
+        // перебираем пары точек
+        for (Point p : points) {
+            for (Point p2 : points) {
+                // если точки являются разными
+                if (p != p2) {
+                    // если координаты у них совпадают
+                    if (Math.abs(p.x - p2.x) < 0.0001 && Math.abs(p.y - p2.y) < 0.0001) {
+                        p.isSolution = true;
+                        p2.isSolution = true;
                     }
                 }
             }
         }
+        int P = -100;
+        for (int i = 0; i < points.size(); i++) {
+            for (int j = 0; j < points.size() && j != i; j++) {
+                for (int r = 0; r < points.size() && r != i && r != j; r++) {
+                    Triangle triangle = new Triangle(new Vector2(points.get(i).x, points.get(i).y), new Vector2(points.get(j).x, points.get(j).y), new Vector2(points.get(r).x, points.get(r).y));
+                    Circle circle = triangle.tcircle(triangle);
+                    circles.add(circle);
+                    if (circle.plcircle(points, circle) > P) {
+                        rescircle = circle;
+                    }
+                }
+            }
+        }
+    }
 
     /**
      * Загрузить задачу из файла
@@ -160,30 +160,20 @@ public class Problem {
             point.render(gl);
         }
         //Figures.renderCircle(gl, new Vector2(0.5, 0.5), 0.2, 400, true);
-           // Triangle triangle = new Triangle(new Vector2(0.5, 0), new Vector2(-0.5, 0), new Vector2(0, 0.5));
-       // Figures.renderQuad(gl, new Vector2(0.5, 0.5), new Vector2(0.5, -0.5), new Vector2(-0.5, -0.5), new Vector2(-0.5, 0.5), false);
-        //Figures.renderTriangle(gl, new Vector2(0.5, 0.5), new Vector2(0.0, 0.5), new Vector2(0.0, 0.0), false, new Color(0.5, 0.5, 0.1));
-            if(rescircle!=null){
-                gl.glColor4f(1.0f, 0.0f, 1.0f, 0.0f);
-                rescircle.render(gl);
-                for (Point point : points) {
-                    if((point.x - rescircle.center.x) * (point.x - rescircle.center.x) +
-                            (point.y - rescircle.center.y) * (point.y - rescircle.center.y) <= rescircle.rad * rescircle.rad){
-                        Circle circle = new Circle(new Vector2(point.x, point.y), 0.01);
-                        gl.glColor4f(0.0f, 1.0f, 1.0f, 1.0f);
-                        circle.render(gl);
-                    }
+        // Triangle triangle = new Triangle(new Vector2(0.5, 0), new Vector2(-0.5, 0), new Vector2(0, 0.5));
+        // Figures.renderQuad(gl, new Vector2(0.5, 0.5), new Vector2(0.5, -0.5), new Vector2(-0.5, -0.5), new Vector2(-0.5, 0.5), false);
+        if (rescircle != null) {
+            gl.glColor4f(1.0f, 0.0f, 1.0f, 0.0f);
+            rescircle.render(gl);
+            for (Point point : points) {
+                if ((point.x - rescircle.center.x) * (point.x - rescircle.center.x) +
+                        (point.y - rescircle.center.y) * (point.y - rescircle.center.y) <= rescircle.rad * rescircle.rad) {
+                    Circle circle = new Circle(new Vector2(point.x, point.y), 0.01);
+                    gl.glColor4f(0.0f, 1.0f, 1.0f, 1.0f);
+                    circle.render(gl);
                 }
             }
-            //Figures.renderCircle(gl, new Vector2(0.5, 0.5), 0.2, 400, true);
-            }
-       // Triangle triangle = new Triangle(new Vector2(0.5, 0), new Vector2(-0.5, 0), new Vector2(0, 0.5));
-       //circle = triangle.tcircle(triangle);
-//        Triangle triangle = new Triangle(new Vector2(0.1,0.2),new Vector2(-0.5,0.1),new Vector2(0.5,-0.8));
-//        triangle.render(gl);
-//        Figures.renderPoint(gl, new Vector2(-0.5, 0.3), 3);
-//        Figures.renderLine(gl, new Vector2(-0.6 ,-0.8), new Vector2(0.3, 0.1), 5);
-//        Figures.renderCircle(gl, new Vector2(0.25, 0.45), 0.3,  200);
-//        Figures.renderTriangles(gl, new Triangle(new Vector2(0.87, 0.3),new Vector2(0.67, 0.21),new Vector2(0.45, 0.4)), new Color(0.5, 0.5, 0.5));
+        }
+        //Figures.renderCircle(gl, new Vector2(0.5, 0.5), 0.2, 400, true);
     }
-    //Triangle triangle = new Triangle(new Vector2(0.5, 0), new Vector2(-0.5, 0), new Vector2(0, 0.5));
+}
