@@ -2,7 +2,6 @@ package problem;
 
 public class Vector2 {
     public static Object pos;
-    public static Object pos1;
     public double x;
     public double y;
     public double z;
