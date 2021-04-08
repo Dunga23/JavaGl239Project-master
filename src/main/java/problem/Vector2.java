@@ -113,4 +113,4 @@ public class Vector2 {
             }}
     public static double tdist(Vector2 A, Vector2 B){
         return(Math.sqrt((A.x-B.x)*(A.x-B.x)+(A.y-B.y)*(A.y-B.y)));}
-    };
+    }
