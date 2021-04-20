@@ -34,6 +34,7 @@ public class Problem {
      */
     private ArrayList<Point> points;
     private ArrayList<Circle> circles;
+    private ArrayList<Point> respoints;
     private Circle circle;
     private Triangle triangle;
     private Circle rescircle;
