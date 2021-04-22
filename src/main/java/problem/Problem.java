@@ -34,7 +34,6 @@ public class Problem {
      */
     private ArrayList<Point> points;
     private ArrayList<Circle> circles;
-    private ArrayList<Point> respoints;
     private Circle circle;
     private Triangle triangle;
     private Circle rescircle;
@@ -160,9 +159,6 @@ public class Problem {
         for (Point point : points) {
             point.render(gl);
         }
-        //Figures.renderCircle(gl, new Vector2(0.5, 0.5), 0.2, 400, true);
-        // Triangle triangle = new Triangle(new Vector2(0.5, 0), new Vector2(-0.5, 0), new Vector2(0, 0.5));
-        // Figures.renderQuad(gl, new Vector2(0.5, 0.5), new Vector2(0.5, -0.5), new Vector2(-0.5, -0.5), new Vector2(-0.5, 0.5), false);
         if (rescircle != null) {
             gl.glColor4f(1.0f, 0.0f, 1.0f, 0.0f);
             rescircle.render(gl);
@@ -175,6 +171,5 @@ public class Problem {
                 }
             }
         }
-        //Figures.renderCircle(gl, new Vector2(0.5, 0.5), 0.2, 400, true);
     }
 }
