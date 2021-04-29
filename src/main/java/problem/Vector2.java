@@ -104,13 +104,9 @@ public class Vector2 {
             return v;
         }
         public double phi(){
-            if((x==-3.2)&&(y==5.7)){
-                double w=x/Math.sqrt(x*x+y*y);
-                return Math.acos(w);
-            }else{
                 double q=y/Math.sqrt(x*x+y*y);
                 return Math.asin(q);
-            }}
+            }//угол
     public static double tdist(Vector2 A, Vector2 B){
         return(Math.sqrt((A.x-B.x)*(A.x-B.x)+(A.y-B.y)*(A.y-B.y)));}
-    }
+    }//расстояние между точками

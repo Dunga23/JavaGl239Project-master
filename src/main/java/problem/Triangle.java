@@ -9,7 +9,7 @@ public class Triangle {
     public String toString() {
         String s=String.format("(%.2f,%.2f)", a, b, c);
         return s;
-    }
+    }//преобразование в строковый формат
     public Triangle(Vector2 a,Vector2 b, Vector2 c){
         this.a=a;
         this.b=b;
@@ -17,7 +17,7 @@ public class Triangle {
     }
     static Triangle getRandomTriangle(){
         return(new Triangle(new Vector2(Math.random(), Math.random()), new Vector2(Math.random(), Math.random()), new Vector2(Math.random(), Math.random())));
-    }
+    }//генерация произвольного треугольника
    public Circle tcircle(Triangle triangle){
         double D = 2*(triangle.a.x*(triangle.b.y-triangle.c.y)+triangle.b.x*(triangle.c.y-triangle.a.y)+triangle.c.x*(triangle.a.y-triangle.b.y));
         Vector2 ce= new Vector2 (((((triangle.a.x*triangle.a.x)+(triangle.a.y*triangle.a.y))*(triangle.b.y-triangle.c.y)+((triangle.b.x*triangle.b.x)+(triangle.b.y*triangle.b.y))*(triangle.c.y-triangle.a.y)+((triangle.c.x*triangle.c.x)+(triangle.c.y*triangle.c.y))*(triangle.a.y-triangle.b.y))/D),
@@ -25,6 +25,6 @@ public class Triangle {
         double r= Vector2.tdist(ce, triangle.a);
        Circle circle = new Circle(ce, r);
        return (circle);
-    }
+    }//нахождение описанной окружности треугольника
 
 }

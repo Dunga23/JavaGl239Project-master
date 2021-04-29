@@ -13,10 +13,10 @@ public class Circle {
     }
  static Circle getRandomCircle() {
         return(new Circle(new Vector2(Math.random(), Math.random()), Math.random()/2 ));
-}
+}//генерируем произвольный объект класса
     public void render(GL2 gl) {
         Figures.renderCircle(gl, center, rad, 400, false);
-    }
+    }//рисуем
    public double plcircle(ArrayList<Point> points, Circle circle){
 double k=0; double s=Math.PI*circle.rad*circle.rad;
         for (Point point : points) {
@@ -26,5 +26,5 @@ double k=0; double s=Math.PI*circle.rad*circle.rad;
 }
         }
         return(k/s);
-        }
+        }//плотность точек внутри
 }
